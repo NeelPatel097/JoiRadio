@@ -176,17 +176,26 @@ class _HomePageState extends State<HomePage> {
                 elevation: 0.0,
                 centerTitle: true,
               ).h(100).p16(),
-                20.heightBox,
                 "Start with - Hey Alan".text.italic.semiBold.white.make(),
                 10.heightBox,
                 VxSwiper.builder(
                     itemCount: sugg.length,
                     height: 50.0,
+                    viewportFraction: 0.35,
+                    autoPlay: true,
+                    autoPlayAnimationDuration: 3.seconds,
+                    autoPlayCurve: Curves.linear,
+                    enableInfiniteScroll: true,
                     itemBuilder: (context, index) {
                       final s = sugg[index];
+                      return Chip(
+                        label: s.text.make(),
+                        backgroundColor: Vx.randomColor,
+                      );
                     },
                 )
               ].vStack(),
+          20.heightBox,
           radios!=null? VxSwiper.builder(
             itemCount: radios.length,
             aspectRatio: 1.0,
